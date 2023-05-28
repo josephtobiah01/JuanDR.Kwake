@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrakeAzureDevopsMobile.Views.AzureAdLoginPage"
+             xmlns:viewmodel="clr-namespace:DrakeAzureDevopsMobile.ViewModels"
+             x:DataType="viewmodel:AzureAdLoginPageViewModel">
+    <VerticalStackLayout 
+            Spacing="25" 
+            Padding="30,0" 
+            VerticalOptions="Center">
+
+        <Image Source="drake_logo" 
+               HeightRequest="150" 
+               WidthRequest="150" />
+
+        <Label Text="Welcome to One Drake!" 
+               FontSize="28" 
+               TextColor="Gray" 
+               HorizontalTextAlignment="Center" 
+               FontFamily="AC"/>
+
+        <ActivityIndicator 
+            x:Name="activityIndicator"
+            Color="{StaticResource Primary}"
+            IsRunning="{Binding IsRunning}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+
+
+        <Button 
+            Text="Sign In" 
+            WidthRequest="100" 
+            CornerRadius="20" 
+            HorizontalOptions="Center"
+            IsVisible="{Binding EmailAddSignInIsVisible}"
+            Command="{Binding SignInCommand}"
+            x:Name="signInButton"/>
+
+        <Image 
+            Source="fingerprint"
+            Aspect="AspectFill"
+            HeightRequest="55"
+            WidthRequest="55"
+            IsVisible="{Binding BiometricsSignInIsVisible}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BiometricsSignInCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+    </VerticalStackLayout>
+</ContentPage>

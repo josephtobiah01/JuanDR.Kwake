@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrakeAzureDevopsMobile.Views.RecentlyUpdatedPage"
+             xmlns:viewmodel="clr-namespace:DrakeAzureDevopsMobile.ViewModels"
+             x:DataType="viewmodel:RecentlyUpdatedPageViewModel"
+             Title="Drake Helpdesk Ticketing System"
+             x:Name="Title">
+
+    <Grid RowDefinitions="*,*,*,*,*"
+          RowSpacing="10">
+
+        <Label 
+            Grid.Row="1"
+            Text="Welcome to One Drake!"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Style="{StaticResource OneDrakeTextHeadingBlackStyle}"/>
+
+        <Label 
+            Grid.Row="2"
+            Text="{Binding Name}"
+            VerticalOptions="Start"
+            HorizontalOptions="CenterAndExpand"
+            Style="{StaticResource OneDrakeTextHeadingBlueStyle}"/>
+
+        <Button
+            Command="{Binding SetReminderCommand}"
+            Text="Set a Notification"
+            Grid.Row="3"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+
+    </Grid>
+    
+    
+</ContentPage>

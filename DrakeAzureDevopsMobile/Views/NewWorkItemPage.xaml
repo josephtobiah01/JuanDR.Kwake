@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrakeAzureDevopsMobile.Views.NewWorkItemPage"
+             Title="New Work Item">
+    <Grid RowDefinitions="*,*,*,*,*"
+          RowSpacing="10">
+
+        <Label 
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Margin="10"
+            Text="Welcome to New Work Item Page!"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            LineBreakMode="WordWrap"
+            Style="{StaticResource OneDrakeTextExtraLargeLightBlackStyle}"
+            FontAutoScalingEnabled="False"/>
+
+        <Button
+            Command="{Binding SetReminderCommand}"
+            Text="Set a Notification"
+            Grid.Row="3"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+
+    </Grid>
+</ContentPage>

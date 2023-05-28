@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:DrakeAzureDevopsMobile.ViewModels"
+             x:DataType="viewmodel:ProfilePageViewModel"
+             x:Class="DrakeAzureDevopsMobile.Views.ProfilePage"
+             Title="Profile">
+    <Grid RowDefinitions="3*, 1*"
+          Padding="0">
+
+        <Grid RowDefinitions="auto,auto,auto,auto,auto,auto"
+              HorizontalOptions="StartAndExpand"
+              Grid.Row="0"
+              Padding="0">
+
+            <Label 
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Margin="25,15">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span 
+                            Text="First Name:  "
+                            Style="{StaticResource OneDrakeTextExtraLargeBlackStyle}"/>
+
+                        <Span 
+                            Text="{Binding FirstName}"
+                            Style="{StaticResource OneDrakeTextLargePrimaryStyle}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+
+            <Label 
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Margin="25,15">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span 
+                            Text="Last Name:  "
+                            Style="{StaticResource OneDrakeTextExtraLargeBlackStyle}"/>
+
+                        <Span 
+                            Text="{Binding LastName}"
+                            Style="{StaticResource OneDrakeTextLargePrimaryStyle}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+
+
+            <Label 
+                Grid.Row="2"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Margin="25,15">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span 
+                            Text="Email:  "
+                            Style="{StaticResource OneDrakeTextExtraLargeBlackStyle}"/>
+
+                        <Span 
+                            Text="{Binding Mail}"
+                            Style="{StaticResource OneDrakeTextLargePrimaryStyle}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+
+
+
+            <Label 
+                Grid.Row="3"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Margin="25,15">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span 
+                            Text="Job Title:   "
+                            Style="{StaticResource OneDrakeTextExtraLargeBlackStyle}"/>
+
+                        <Span 
+                            Text="{Binding JobTitle}"
+                            Style="{StaticResource OneDrakeTextLargePrimaryStyle}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+
+
+            <Label 
+                Grid.Row="4"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Margin="25,15">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span 
+                            Text="Mobile Phone:  "
+                            Style="{StaticResource OneDrakeTextExtraLargeBlackStyle}"/>
+
+                        <Span 
+                            Text="{Binding MobilePhone}"
+                            Style="{StaticResource OneDrakeTextLargePrimaryStyle}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+
+            <Label 
+                Grid.Row="5"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Margin="25,15">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span 
+                            Text="Office Location:  "
+                            Style="{StaticResource OneDrakeTextExtraLargeBlackStyle}"/>
+                        
+                        <Span 
+                            Text="{Binding OfficeLocation}"
+                            Style="{StaticResource OneDrakeTextLargePrimaryStyle}"/>
+                    </FormattedString>  
+                </Label.FormattedText>
+            </Label>
+            
+        </Grid>
+
+        <Button 
+            Text="Sign Out"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Margin="30"
+            Grid.Row="1"
+            FontAttributes="Bold"
+            CornerRadius="20"
+            Command="{Binding SignOutCommand}"/>
+        
+
+
+    </Grid>
+    
+</ContentPage>

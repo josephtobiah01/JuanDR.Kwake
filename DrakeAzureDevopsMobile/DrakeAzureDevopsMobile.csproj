@@ -1,0 +1,186 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-ios;net6.0-maccatalyst;net6.0-android</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>DrakeAzureDevopsMobile</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>One Drake</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.drakeintl.onedrakeapp</ApplicationId>
+		<ApplicationIdGuid>aee19a77-2b71-41b8-8a74-b2665efbbda6</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.1</ApplicationDisplayVersion>
+		<ApplicationVersion>1.1</ApplicationVersion>
+		
+		<!--Android-->
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>onedrakeapp.keystore</AndroidSigningKeyStore>
+		<AndroidSigningKeyAlias>onedrake</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass>onedrake</AndroidSigningKeyPass>
+		<AndroidSigningStorePass>onedrake</AndroidSigningStorePass>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">28.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(TargetFramework.Contains('-ios')) and '$(Configuration)' == 'Release'">
+	  <ProvisioningType>manual</ProvisioningType>
+	  <CodesignProvision>OneDrakeAppProvProfile</CodesignProvision>
+	  <CodesignKey>iPhone Distribution: Xcellerator Pty Ltd (D8UWM82ZGU)</CodesignKey>
+	</PropertyGroup> 
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
+	  <CodesignEntitlements />
+	  <CodesignResourceRules></CodesignResourceRules>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-ios|AnyCPU'">
+	  <CodesignEntitlements />
+	  <CodesignResourceRules></CodesignResourceRules>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)'=='net6.0-ios'  and '$(Configuration)' == 'Debug'">
+	  <ProvisioningType>manual</ProvisioningType>
+	  <CodesignProvision>VS: com.drakeintl.onedrakeapp Development</CodesignProvision>
+	</PropertyGroup>
+
+	<!--<PropertyGroup Condition="'$(TargetFramework)'=='net6.0-ios'">
+	  <ProvisioningType>manual</ProvisioningType>
+	  <CodesignKey>Apple Development: Joseph Alulod (N96FJ4MB89)</CodesignKey>
+	</PropertyGroup>-->
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" Include="Resources\AppIcon\drakelogo.png" ForegroundFile="Resources\AppIcon\drakelogo.png" Resize="true" Color="#FFFF" ForegroundScale=".85" />
+
+		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'" Include="Resources\AppIcon\drakelogo.png" ForegroundFile="Resources\AppIcon\drakelogo.png" Resize="false" Color="#FFFF" ForegroundScale="1.1" />
+
+		<MauiIcon Include="Resources\AppIcon\drakelogo.png" ForegroundFile="Resources\AppIcon\drakelogo.png" Resize="true" Color="#FFFF" ForegroundScale=".85" />
+
+
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\drakelogo_splash.png" BaseSize="150,210" Color="#FFFFFF" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Resources\Fonts\TextIcons.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiFont Remove="Resources\Fonts\CustomFont.ttf" />
+	  <MauiFont Remove="Resources\Fonts\fa-brands-400.ttf" />
+	  <MauiFont Remove="Resources\Fonts\fa-regular-400.ttf" />
+	  <MauiFont Remove="Resources\Fonts\fa-solid-900.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\CustomFont.ttf" />
+	  <None Remove="Resources\Fonts\fa-brands-400.ttf" />
+	  <None Remove="Resources\Fonts\fa-regular-400.ttf" />
+	  <None Remove="Resources\Fonts\fa-solid-900.ttf" />
+	  <None Remove="Resources\Images\checklist.png" />
+	  <None Remove="Resources\Images\drake_logo.png" />
+	  <None Remove="Resources\Images\fingerprint.png" />
+	  <None Remove="Resources\Images\more.png" />
+	  <None Remove="Resources\Images\pipeline.png" />
+	  <None Remove="Resources\Images\profile.png" />
+	  <None Remove="Resources\Images\repos.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\Fonts\CustomFont.ttf" />
+	  <EmbeddedResource Include="Resources\Fonts\fa-brands-400.ttf" />
+	  <EmbeddedResource Include="Resources\Fonts\fa-regular-400.ttf" />
+	  <EmbeddedResource Include="Resources\Fonts\fa-solid-900.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+	  <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
+	  <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
+	  <PackageReference Include="Microsoft.Identity.Client" Version="4.52.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3">
+	    <TreatAsUsed>true</TreatAsUsed>
+	  </PackageReference>
+	  <PackageReference Include="Plugin.Fingerprint" Version="3.0.0-beta.1" />
+	  <PackageReference Include="Plugin.LocalNotification" Version="10.1.4" />
+	  <PackageReference Include="Syncfusion.Maui.TabView" Version="21.2.3" />
+	  <PackageReference Include="Xamarin.iOS.SwiftRuntimeSupport" Version="0.2.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\RecentlyUpdatedPage.xaml.cs">
+	    <DependentUpon>RecentlyUpdatedPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="CustomControls\FlyoutBorder.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CustomControls\FlyoutFooter.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CustomControls\FlyoutHeader.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AzureAdLoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Boards2Page.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\BoardsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewWorkItemPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NotificationsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PipelinesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProfilePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ReposPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\RecentlyUpdatedPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
+	  <PackageReference Include="Xamarin.AndroidX.Migration">
+	    <Version>1.0.10</Version>
+	  </PackageReference>
+	</ItemGroup>
+
+</Project>

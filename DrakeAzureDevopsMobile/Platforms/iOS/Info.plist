@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	
+	<key>keychain-access-groups</key>
+	<array>
+		<string>D8UWM82ZGU.com.drakeintl.onedrakeapp</string>
+	</array>
+
+	
+	<key>NSFaceIDUsageDescription</key>
+	<string>Please do a Face Scan to Sign In</string>
+	
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+		<integer>2</integer>
+	</array>
+	
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+	
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/drakelogo.appiconset</string>
+	
+	<key>CFBundleIdentifier</key>
+	<string>com.drakeintl.onedrakeapp</string>
+	
+	<key>CFBundleVersion</key>
+	<string>1.1.3</string>
+	
+	<key>CFBundleShortVersionString</key>
+	<string>113</string>
+	
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>URL Type 2</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+	</array>
+	
+</dict>
+</plist>

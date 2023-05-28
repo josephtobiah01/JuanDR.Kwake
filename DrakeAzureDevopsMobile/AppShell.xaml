@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="DrakeAzureDevopsMobile.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:DrakeAzureDevopsMobile.CustomControls"
+    xmlns:local="clr-namespace:DrakeAzureDevopsMobile.Views"
+    xmlns:viewmodel="clr-namespace:DrakeAzureDevopsMobile.ViewModels"
+    x:DataType="viewmodel:AppShellViewModel"
+    xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+    Title="One Drake"
+    FlyoutWidth="250"
+    FlyoutBackgroundColor="{AppThemeBinding 
+                    Dark={StaticResource SystemGray3Dark}, 
+                    Light={StaticResource WindowBackgroundColor}}">
+
+    
+
+    <Shell.BindingContext>
+        <viewmodel:AppShellViewModel/>
+    </Shell.BindingContext>
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="CustomTab">
+                <Grid RowDefinitions="*,*">
+                    <Label Grid.RowSpan="2" Text="{TemplateBinding Shell.Title}" 
+                       HorizontalOptions="CenterAndExpand" 
+                       VerticalOptions="CenterAndExpand" />
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeaderTemplate >
+        <DataTemplate>
+            <Image
+                Source="drake_logo"
+                Aspect="{OnPlatform Android=AspectFit}"
+                Margin="10,40,10,10"
+                HeightRequest="100"/>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <Grid RowDefinitions="*,*"
+                  ColumnDefinitions="auto,auto"
+                  RowSpacing="10">
+
+                <Label 
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="App Name: "
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="5"
+                    FontAutoScalingEnabled="False"/>
+                <Label 
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{Binding VersionName}"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="5"
+                    FontAutoScalingEnabled="False"/>
+
+                <Label 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Build Version: "
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="5"
+                    FontAutoScalingEnabled="False"/>
+                <Label 
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding BuildString}"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="5"
+                    FontAutoScalingEnabled="False"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+    
+    
+
+
+    <ShellContent 
+        ContentTemplate="{DataTemplate local:AzureAdLoginPage}" 
+        Route="AzureAdLoginPage" 
+        Shell.FlyoutBehavior="Disabled" 
+        FlyoutItemIsVisible="False"
+        Shell.NavBarIsVisible="False"/>
+
+    
+
+    <FlyoutItem 
+        Title="Helpdesk Ticketing System" 
+        Shell.FlyoutBehavior="Flyout"
+        Icon="checklist"
+        Route="Boards">
+        
+        <Tab Title="Tickets"
+             Style="{StaticResource OneDrakeTextLargeBlackStyle}">
+
+
+            <ShellContent 
+                ContentTemplate="{DataTemplate local:RecentlyUpdatedPage}" 
+                Route="RecentlyUpdatedPage"
+                Title="My Work"/>
+
+            <ShellContent  
+                ContentTemplate="{DataTemplate local:NewWorkItemPage}" 
+                Route="NewWorkItemPage" 
+                Title="My Tickets"/>
+
+            <ShellContent  
+                ContentTemplate="{DataTemplate local:NewWorkItemPage}" 
+                Route="NewWorkItemPage" 
+                Title="Unassigned Tickets"/>
+
+            <ShellContent  
+                ContentTemplate="{DataTemplate local:NewWorkItemPage}" 
+                Route="NewWorkItemPage" 
+                Title="All Tickets"/>
+
+            <ShellContent  
+                ContentTemplate="{DataTemplate local:NewWorkItemPage}" 
+                Route="NewWorkItemPage" 
+                Title="Closed Tickets"/>
+
+        </Tab>
+
+
+
+        <Tab Title="Admin">
+
+            <ShellContent  
+                ContentTemplate="{DataTemplate local:BoardsPage}" 
+                Route="BoardsPage"
+                Title="Drake Helpdesk Ticketing System"/>
+        </Tab>
+
+
+        <Tab Title="Reports" StyleId="CustomTab">
+
+            <ShellContent  
+                ContentTemplate="{DataTemplate local:NotificationsPage}" 
+                Route="NotificationsPage"
+                Title="Drake Helpdesk Ticketing System"/>
+        </Tab>
+
+        <Tab Title="Audit Logs">
+
+            <ShellContent  
+                ContentTemplate="{DataTemplate local:NotificationsPage}" 
+                Route="NotificationsPage"
+                Title="Drake Helpdesk Ticketing System"/>
+        </Tab>
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Repos" 
+                Shell.FlyoutBehavior="Flyout"
+                Icon="repos">
+
+        <ShellContent Title="Repos" 
+                      ContentTemplate="{DataTemplate local:ReposPage}" 
+                      Route="ReposPage"/>
+        
+    </FlyoutItem>
+
+    <FlyoutItem Title="Pipelines" 
+                Shell.FlyoutBehavior="Flyout"
+                Icon="pipeline">
+
+
+        <ShellContent Title="Pipelines" 
+                      ContentTemplate="{DataTemplate local:PipelinesPage}" 
+                      Route="PipelinesPage"/>
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Profile" 
+                Shell.FlyoutBehavior="Flyout"
+                Icon="profile">
+
+        <ShellContent 
+            Title="Profile" 
+            ContentTemplate="{DataTemplate local:ProfilePage}" 
+            Route="ProfilePage"/>
+
+    </FlyoutItem>
+
+
+
+</Shell>
