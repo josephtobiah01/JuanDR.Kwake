@@ -10,10 +10,6 @@ public partial class AppShell : Shell
 		
 		InitializeComponent();
 
-        
-        
-
-
         Routing.RegisterRoute(nameof(BoardsPage), typeof(BoardsPage));
 		Routing.RegisterRoute(nameof(ReposPage), typeof(ReposPage));
 		Routing.RegisterRoute(nameof(PipelinesPage), typeof(PipelinesPage));

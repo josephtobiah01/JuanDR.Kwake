@@ -118,7 +118,7 @@ namespace DrakeAzureDevopsMobile.ViewModels
 
 
         #region Methods
-        #region Constructors
+        #region Constructor
 
         public RecentlyUpdatedPageViewModel(
             INotificationJsonFileService notificationJsonFileService,
@@ -144,7 +144,7 @@ namespace DrakeAzureDevopsMobile.ViewModels
         }
 
 
-        #endregion Constructors
+        #endregion Constructor
 
 
 

@@ -31,6 +31,7 @@ namespace DrakeAzureDevopsMobile.ViewModels
         private bool _emailAddSignInIsVisible = true;
         private bool _biometricsSignInIsVisible = false;
         private INotificationServiceOneDrake _notificationServiceOneDrake;
+        
 
         #endregion Fields
 
@@ -93,7 +94,7 @@ namespace DrakeAzureDevopsMobile.ViewModels
             Initialize();
 
             
-
+            
 
         }
 

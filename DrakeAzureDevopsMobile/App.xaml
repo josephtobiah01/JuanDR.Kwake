@@ -11,10 +11,4 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
-
-    <Application.MainPage>
-        <Shell>
-            
-        </Shell>
-    </Application.MainPage>
 </Application>

@@ -20,17 +20,6 @@
         <viewmodel:AppShellViewModel/>
     </Shell.BindingContext>
 
-    <Shell.Resources>
-        <ResourceDictionary>
-            <ControlTemplate x:Key="CustomTab">
-                <Grid RowDefinitions="*,*">
-                    <Label Grid.RowSpan="2" Text="{TemplateBinding Shell.Title}" 
-                       HorizontalOptions="CenterAndExpand" 
-                       VerticalOptions="CenterAndExpand" />
-                </Grid>
-            </ControlTemplate>
-        </ResourceDictionary>
-    </Shell.Resources>
 
     <Shell.FlyoutHeaderTemplate >
         <DataTemplate>
@@ -132,6 +121,7 @@
                 Route="NewWorkItemPage" 
                 Title="Closed Tickets"/>
 
+            
         </Tab>
 
 
@@ -153,7 +143,16 @@
                 Title="Drake Helpdesk Ticketing System"/>
         </Tab>
 
+
         <Tab Title="Audit Logs">
+
+            <ShellContent  
+                ContentTemplate="{DataTemplate local:NotificationsPage}" 
+                Route="NotificationsPage"
+                Title="Drake Helpdesk Ticketing System"/>
+        </Tab>
+
+        <Tab Title="About Us">
 
             <ShellContent  
                 ContentTemplate="{DataTemplate local:NotificationsPage}" 

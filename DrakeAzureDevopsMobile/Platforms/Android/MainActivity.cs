@@ -1,13 +1,9 @@
-﻿using Android;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using DrakeAzureDevopsMobile.MsalClient;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
 using Microsoft.Identity.Client;
 using Plugin.Fingerprint;
 
@@ -26,8 +22,7 @@ public class MainActivity : MauiAppCompatActivity
         PlatformConfig.Instance.RedirectUri = AndroidRedirectURI;
         PlatformConfig.Instance.ParentWindow = this;
 
-        AppCenter.Start("6160d048-2f34-47f7-bc7c-7f5b7c41fa20",
-                        typeof(Analytics), typeof(Crashes));
+       
 
         
 

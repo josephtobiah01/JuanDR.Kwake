@@ -22,7 +22,6 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseLocalNotification()
-            .ConfigureSyncfusionCore()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -52,9 +51,6 @@ public static class MauiProgram
         builder.Services.AddTransient<NewWorkItemPageViewModel>(); 
 
         builder.Services.AddTransient<AppShellViewModel>();
-
-        
-
 
 
         return builder.Build();

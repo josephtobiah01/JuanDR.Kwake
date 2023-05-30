@@ -56,9 +56,11 @@ public partial class App : Application
 
         InitializeComponent();
 
-        
+
+
 
         MainPage = new AppShell();
+
 
         IdleTimer.Elapsed += IdleTimer_Elapsed;
 
@@ -85,7 +87,7 @@ public partial class App : Application
         MessagingCenter.Send<App, bool>(this, "ReloadNotifications", true);
 
     }
-    #endregion Constructor
+#endregion Constructor
 
 
 
