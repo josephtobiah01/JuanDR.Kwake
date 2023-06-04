@@ -7,10 +7,8 @@ using DrakeAzureDevopsMobile.Services;
 using DrakeAzureDevopsMobile.Services.Interfaces;
 using DrakeAzureDevopsMobile.Services.LocalNotificationWrapper;
 using DrakeAzureDevopsMobile.ViewModels;
-using DrakeAzureDevopsMobile.ViewModels.Interfaces;
 using DrakeAzureDevopsMobile.Views;
 using Plugin.LocalNotification;
-using Syncfusion.Maui.Core.Hosting;
 
 namespace DrakeAzureDevopsMobile;
 

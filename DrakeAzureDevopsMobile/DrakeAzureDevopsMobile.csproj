@@ -120,13 +120,12 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-	  <PackageReference Include="Microsoft.Identity.Client" Version="4.52.0" />
+	  <PackageReference Include="Microsoft.Identity.Client" Version="4.54.0" />
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3">
 	    <TreatAsUsed>true</TreatAsUsed>
 	  </PackageReference>
 	  <PackageReference Include="Plugin.Fingerprint" Version="3.0.0-beta.1" />
-	  <PackageReference Include="Plugin.LocalNotification" Version="10.1.4" />
-	  <PackageReference Include="Syncfusion.Maui.TabView" Version="21.2.3" />
+	  <PackageReference Include="Plugin.LocalNotification" Version="10.1.5" />
 	  <PackageReference Include="Xamarin.iOS.SwiftRuntimeSupport" Version="0.2.1" />
 	</ItemGroup>
 
